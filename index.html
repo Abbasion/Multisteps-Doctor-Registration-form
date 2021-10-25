@@ -1,0 +1,403 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+<form id="form1" name="form1" action="saveDoc.html" method="post">
+  <h1 style="color:#000">New Doctor Registration</h1>
+  <br>
+  <div id="sf1" class="frm">
+    <!--  user name field will be here with next button -->
+    <fieldset>
+      <div class="col-xs-1"></div>
+      <font size="5" color="#009999">Step 1 of 4</font>
+      <hr style="border: 1px solid #cccccc">
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Doctor Id <span>*</span></p>
+            <input type="text" name="docID" id="docID" class="form-control input-sm" required />
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <p>Date of Join <span>*</span></p>
+            <input type="date" name="doj" id="doj" max="3000-12-31" class="form-control input-sm" required />
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Registration Number<span>*</span></p>
+            <input type="text" name="prnum" id="prnum" class="form-control input-sm" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Employment Type <span>*</span></p>
+            <select class="form-control" name="etype" id="etype" required>
+              <option default selected>Select Employment Type</option>
+              <option>Permanent</option>
+              <option>Temporary</option>
+              <option>Visiting</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <p>Preferred Shift <span>*</span></p>
+            <select class="form-control" name="shift" id="shift" required>
+              <option default selected>Select Shift</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+              <option>Night</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Department <span>*</span></p>
+            <select class="form-control" name="department" id="department">
+              <option default selected>Select Department</option>
+              <option>Cardiology</option>
+              <option>Critical Care</option>
+              <option>General Surgery</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-1"></div>
+          <div class="col-xs-3">
+            <div class="form-group">
+              <p>Designation <span>*</span></p>
+              <select class="form-control" name="designation" id="designation">
+                <option default selected>Select Designation</option>
+                <option> Doctor of Dental Surgery</option>
+                <option>Doctor of Psychology</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <!-- open1 is given in the class that is binded with the click event -->
+          <center>
+            <button class="btn btn-primary open1" name="button1" id="button1" type="button">Next <span class="fa fa-arrow-right"></span></button>
+          </center>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <!-- id will be unique, but class name will be same -->
+  <div id="sf2" class="frm">
+    <!--  user email field will be here with next and previous button -->
+    <fieldset>
+      <div class="col-xs-1"></div>
+      <font size="5" color="#009999">Step 2 of 4</font>
+      <hr style="border: 1px solid #cccccc">
+      <center><b><font size="3">Personal Details</font></b></center>
+      <br>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>First Name <span>*</span></p>
+            <input type="text" name="fname" id="fname" class="form-control input-sm" required />
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <p>Middle Name <span></span></p>
+            <input type="text" name="mname" id="mname" class="form-control input-sm" />
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Last Name <span>*</span></p>
+            <input type="text" name="lname" id="lname" class="form-control input-sm" required/>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Date of Birth <span>*</span></p>
+            <input type="text" name="dob" id="dob" max="3000-12-31" value="2012-05-15 21:05" class="form-control input-sm" required/>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <p>Age <span>*</span></p>
+            <input type="number" name="age" id="age" maxlength="3" class="form-control input-sm form_datetime" required/>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <div class="btn-group" data-toggle="buttons">
+              <p>Gender <span>*</span></p>
+              <label class="btn btn-default">
+                <input class="form-control input-sm" style="width: 10px;" value="M" type="radio" name="gender" />M</label>
+              <label class="btn btn-default">
+                <input class="form-control input-sm" type="radio" value="F" name="gender" />F</label>
+              <label class="btn btn-default">
+                <input class="form-control input-sm" type="radio" value="Transgender" name="gender" />Transgender</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>SSN <span>*</span></p>
+            <input type="text" name="ssn" id="ssn" class="form-control input-sm" required/>
+          </div>
+        </div>
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-3">
+        </div>
+      </div>
+      <div class="clearfix" style="height: 10px;clear: both;"></div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <!-- back2 unique class name  -->
+          <center>
+            <button class="btn btn-warning back2" type="button"><span class="fa fa-arrow-left"></span> Back</button>
+            <!-- open2 unique class name -->
+            <button class="btn btn-primary open2" type="button">Next <span class="fa fa-arrow-right"></span></button>
+          </center>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <!-- id will be unique, but class name will be same -->
+  <div id="sf3" class="frm">
+    <!--  user email field will be here with next and previous button -->
+    <fieldset>
+      <div class="col-xs-1"></div>
+      <font size="5" color="#009999">Step 3 of 4</font>
+      <hr style="border: 1px solid #cccccc">
+      <center><b><font size="3">Contact Details</font></b></center>
+      <br>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>LandPhone <span>*</span></p>
+            <input type="text" name="landphone" id="landphone" value="080-" maxlength="11" class="form-control input-sm" required />
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <p>Mobile<span>*</span></p>
+            <input type="text" name="mobile" id="mobile" value="+91" maxlength="14" class="form-control input-sm" required />
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Email <span>*</span></p>
+            <input type="email" name="email" id="email" class="form-control input-sm" required />
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Address1<span>*</span></p>
+            <textarea name="address" id="address1" rows="5" data-rule="required" data-msg="address1" required></textarea>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <p>Address2<span></span></p>
+            <textarea name="address2" id="address2" rows="5" data-rule="required" data-msg="address2"></textarea>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Country <span>*</span></p>
+            <select class="form-control" name="country" id="country" required>
+              <option>Select Country</option>
+              <option>India</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>State <span>*</span></p>
+            <select class="form-control" name="state" id="state" required>
+              <option>Select State</option>
+              <option>Karnataka</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <p>City <span>*</span></p>
+            <select class="form-control" name="city" id="city" required>
+              <option>Select City</option>
+              <option>Bangalore</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Postal Code<span>*</span></p>
+            <input type="text" name="pcode" maxlength="6" id="pcode" class="form-control input-sm" required />
+          </div>
+        </div>
+      </div>
+      <div class="clearfix" style="height: 10px;clear: both;"></div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <!-- back2 unique class name  -->
+          <center>
+            <button class="btn btn-warning back3" type="button"><span class="fa fa-arrow-left"></span> Back</button>
+            <!-- open2 unique class name -->
+            <button class="btn btn-primary open3" type="button">Next <span class="fa fa-arrow-right"></span></button>
+          </center>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div id="sf4" class="frm">
+    <!--  user email field will be here with next and previous button -->
+    <fieldset>
+      <div class="col-xs-1"></div>
+      <font size="5" color="#009999">Step 4 of 4</font>
+      <hr style="border: 1px solid #cccccc">
+      <center><b><font size="3">Education Details</font></b></center>
+      <br>
+      <div class="form-group row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Qualification <span>*</span></p>
+            <input type="text" name="qualification" id="qualification" class="form-control input-sm" required>
+          </div>
+        </div>
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <p>Specialization <span>*</span></p>
+            <input type="text" name="specialization" id="specialization" class="form-control input-sm" required/>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <!-- Unique class name -->
+          <center>
+            <button class="btn btn-warning back4" type="button"><span class="fa fa-arrow-left"></span> Back</button>
+            <!-- Unique class name -->
+            <button type="submit" class="btn btn-primary open4 ">Save</button>
+          </center>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="form-group row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-3">
+      <!--  <div class="form-group">
+            <p>Department <span>*</san></p>
+            <select class="form-control" name="dept" id="dept" required>
+            <option>Select Department</option>
+            <option>OPD</option>
+            <option>Cardiology</option>
+            <option>Critical Care</option>
+            
+            </select>
+            </div>
+            -->
+    </div>
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-3">
+    </div>
+  </div>
+  <button type="" class="bouton-contact" onclick=""></button>
+</form>
+<script>
+    $(document).ready(function() {
+
+var v = $("#form1").validate({
+  rules: {
+    fname: {
+      required: true,
+      minlength: 2,
+      maxlength: 16
+    },
+    lname: {
+      required: true,
+      minlength: 2,
+      email: true,
+      maxlength: 100,
+    },
+    prnum: {
+      required: true,
+      minlength: 6,
+      maxlength: 15,
+    },
+    age: {
+      required: true,
+      minlength: 6,
+    }
+  },
+  errorElement: "span",
+  errorClass: "help-inline",
+});
+
+
+// Binding next button on first step
+$(".frm").hide("fast");
+$("#sf1").show("slow");
+
+$(".open1").click(function() {
+  if (v.form()) {
+    $(".frm").hide("fast");
+    $("#sf2").show("slow");
+  }
+});
+
+// Binding next button on second step
+$(".open2").click(function() {
+  if (v.form()) {
+    $(".frm").hide("fast");
+    $("#sf3").show("slow");
+  }
+});
+
+$(".open3").click(function() {
+  $(".frm").hide("fast");
+  $("#sf4").show("slow");
+});
+
+// Binding back button on second step
+$(".back2").click(function() {
+  $(".frm").hide("fast");
+  $("#sf1").show("slow");
+});
+
+// Binding back button on third step
+$(".back3").click(function() {
+  $(".frm").hide("fast");
+  $("#sf2").show("slow");
+});
+
+$(".back4").click(function() {
+  $(".frm").hide("fast");
+  $("#sf3").show("slow");
+});
+
+});
+</script>
